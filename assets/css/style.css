@@ -138,9 +138,17 @@ article.home h4 a:hover {
   margin-right: 20px;
 }
 
+footer span {
+	white-space: nowrap;
+	display: inline-block;
+}
+
 footer {
 	padding-top: 15px;
 	font-family: 'Ubuntu';
+	font-size: 12px;
+	color: #999;
+	text-align: center;
 }
 
 /* nav-vertical-tabs component */
