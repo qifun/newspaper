@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Categories
+title: 栏目
 header: Posts By Category
 group: navigation
 ---
@@ -32,13 +32,13 @@ group: navigation
 <div class="tab-content col-sm-9 col-xs-6">
   {% for category in site.categories %}
     <div class="tab-pane" id="{{ category[0] | replace:' ','-' }}-ref">
-      <h2 style="margin-top: 0px">Posts in {{ category[0] | capitalize }}</h2>
+      <h2 style="margin-top: 0px"><q>{{ category[0] | capitalize }}</q>栏目下的文章</h2>
       <ul class="list-unstyled">
         {% assign pages_list = category[1] %}
         {% for node in pages_list %}
           {% if node.title != null %}
             {% if group == null or group == node.group %}
-              <li style="line-height: 35px;"><a href="{{ site.BASE_PATH }}{{node.url}}">{{node.title}}</a> <span class="text-muted">- {{ node.date | date: "%B %d, %Y" }}</span></li>
+              <li style="line-height: 35px;"><a href="{{ site.BASE_PATH }}{{node.url}}">{{node.title}}</a> <span class="text-muted">- {{ node.date | date: "%Y-%m-%d" }}</span></li>
             {% endif %}
           {% endif %}
         {% endfor %}
