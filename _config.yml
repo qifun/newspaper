@@ -9,6 +9,7 @@ github:
   is_project_page: true
   owner_url: "https://github.com/qifun"
   owner_gravatar_url: "https://github.com/qifun.png"
+  owner_url: "https://github.com/qifun"
 markdown: kramdown
 
 defaults:
@@ -27,6 +28,7 @@ author:
   url: "http://qforce.qifun.com/newspaper"
   bio: 岂凡技术小报
   email_md5: 50993397b1b5ed2eae8e50e25d9663e8 
+email: yangbo@qifun.com
 
 rss_path: feed.xml
 categories_path: categories.html

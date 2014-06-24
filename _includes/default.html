@@ -6,7 +6,7 @@
 	{% if page.description %}
 	<meta name="description" content="{{ page.description }}">
 	{% endif %}
-	<meta name="author" content="{{ site.author.name }}">
+	<meta name="author" content="{{ page.author.name }}">
 
 	<!-- Enable responsive viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,23 +43,21 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			{% if site.author.github %}
-			<a type="button" class="navbar-toggle nav-link" href="http://github.com/{{ site.author.github }}">
+			<a type="button" class="navbar-toggle nav-link" href="{{ site.github.owner_url }}">
 				<i class="fa fa-github"></i>
 			</a>
-			{% endif %}
-			{% if site.author.twitter %}
-			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/{{ site.author.twitter }}">
+			{% if site.twitter %}
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/{{ site.twitter }}">
 				<i class="fa fa-twitter"></i>
 			</a>
 			{% endif %}
-			{% if site.author.email %}
-			<a type="button" class="navbar-toggle nav-link" href="mailto:{{ site.author.email }}">
+			{% if site.email %}
+			<a type="button" class="navbar-toggle nav-link" href="mailto:{{ site.email }}">
 				<i class="fa fa-envelope"></i>
 			</a>
 			{% endif %}
 			<a class="navbar-brand" href="{{ site.baseurl }}/">
-				<img src="http://www.gravatar.com/avatar/{{site.author.email_md5}}?s=35" class="img-circle" />
+				<img src="{{ site.github.owner_gravatar_url }}" class="img-circle" />
 				{{ site.title }}
 			</a>
 		</div>
