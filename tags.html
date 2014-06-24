@@ -1,6 +1,6 @@
 ---
 layout: page
-title: æ ‡ç­¾
+title: ±êÇ©
 header: Posts By Tag
 group: navigation
 ---
@@ -14,7 +14,7 @@ group: navigation
     {% for item in (0..site.tags.size) %}{% unless forloop.last %}
       {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
       <li>
-          <a href="#{{ this_word | cgi_escape }}-ref" data-toggle="tab">
+          <a href="#{{ this_word | replace:' ','-' }}-ref" data-toggle="tab">
             {{ this_word }}<span class="badge pull-right">{{ site.tags[this_word].size }}</span>
          </a>
       </li>
@@ -25,8 +25,8 @@ group: navigation
 <div class="tab-content col-sm-9 col-xs-6">
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-    <div class="tab-pane" id="{{ this_word | cgi_escape }}-ref">
-      <h2 style="margin-top: 0px">æ ‡ç€<q>{{ this_word }}</q>çš„æ–‡ç« </h2>
+    <div class="tab-pane" id="{{ this_word | replace:' ','-' }}-ref">
+      <h2 style="margin-top: 0px">±ê×Å<q>{{ this_word }}</q>µÄÎÄÕÂ</h2>
       <ul class="list-unstyled">
         {% for post in site.tags[this_word] %}{% if post.title != null %}
           <li style="line-height: 35px;"><a href="{{ site.BASE_PATH }}{{post.url}}">{{post.title}}</a> <span class="text-muted">- {{ post.date | date: "%Y-%m-%d" }}</span></li>
