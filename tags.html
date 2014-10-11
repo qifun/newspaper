@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ±êÇ©
+title: æ ‡ç­¾
 header: Posts By Tag
 group: navigation
 ---
@@ -26,7 +26,7 @@ group: navigation
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
     <div class="tab-pane" id="{{ this_word | replace:' ','-' }}-ref">
-      <h2 style="margin-top: 0px">±ê×Å<q>{{ this_word }}</q>µÄÎÄÕÂ</h2>
+      <h2 style="margin-top: 0px">æ ‡ç€<q>{{ this_word }}</q>çš„æ–‡ç« </h2>
       <ul class="list-unstyled">
         {% for post in site.tags[this_word] %}{% if post.title != null %}
           <li style="line-height: 35px;"><a href="{{ site.BASE_PATH }}{{post.url}}">{{post.title}}</a> <span class="text-muted">- {{ post.date | date: "%Y-%m-%d" }}</span></li>
