@@ -4,29 +4,36 @@ paginate: 10 # pagination based on number of posts
 paginate_path: "page:num"
 exclude: ["README.md", "Gemfile", "Gemfile.lock"] # files to exclude
 highlighter: true
+github:
+  is_user_page: false
+  is_project_page: true
+  owner_url: "https://github.com/qifun"
+  owner_gravatar_url: "https://github.com/qifun.png"
 markdown: kramdown
-
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
     values:
-      title: dbyll
+      title: 岂凡技术小报
 
-description: Stylish Jekyll Theme
+title: 岂凡技术小报
+description: 做真正有趣的游戏<br/>向所有玩家传播快乐
 author:
-  name: dbyll
-  email: dbyll@ismaildemirbilek.com
-  github: dbtek
-  twitter: dbtek
-  pinterest: asd123
-  linkedin: asd123
-  bio: Your stylish, minimalist theme!
-  email_md5: 726351295ec82e145928582f595aa3aa
+  bitbucket: qforce
+  email: yangbo@qifun.com
+  github: qifun
 
 rss_path: feed.xml
 categories_path: categories.html
 tags_path: tags.html
+encoding: utf-8
+timezone: CN
+permalink: /:year/:month/:day/:title
+gems:
+- jekyll-mentions
+- jekyll-redirect-from
+- jekyll-sitemap
 
 baseurl: /newspaper
