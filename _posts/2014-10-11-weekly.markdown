@@ -86,21 +86,22 @@ ps：在stm中使用定时器好麻烦，如果没有模板照着写的话很容
 
 ## @tice9982: 单元测试　注入
 
-{% highlight scala %}
+``` scala
     new Session(id) with ParaisoSession with TextSession {
       ……
       final def outgoingService[ServiceInterface]( implicit entry: RpcSession.OutgoingProxyEntry[ServiceInterface]): ServiceInterface = {
         //网络处理
       }
     }
-{% endhighlight %}
-{% highlight scala %}
+```
+
+``` scala
       new ParaisoSession{
         ……
       final def outgoingService[Service](implicit entry: com.qifun.bcp.rpc.RpcSession.OutgoingProxyEntry[Service]): Service = {
         assertEquals(XXXXXXX,XXXXXXXXX)
         }
       }
-{% endhighlight %}
+```
 
 注入框架很方便实现接口的替换，从而跳过网络模块直接调用测试代码，一个单元测试思路
