@@ -63,20 +63,20 @@ ps：在stm中使用定时器好麻烦，如果没有模板照着写的话很容
 
 什么也不说，先上代码
 
-{% highlight scala %}
+``` scala
     try {
       ……
     } catch {
       case e: Throwable => Assert.assertFalse(e.isInstanceof[XXXXXXX])
     }
-{% endhighlight %}
-{% highlight scala %}
+```
+``` scala
     try {
       ……
     } catch {
       case e: XXXXXXX => //正常应该抛出的异常
     }
-{% endhighlight %}
+```
 
 本身Assert就是抛出异常，然后被自己写的第一段代码先截获　然后再抛出新的异常，这不但是多余的，而且还改变了原来的异常，如果提示的信息不正确，将给调试带来麻烦。
 
