@@ -30,3 +30,15 @@ title: "岂凡技术小报 第二期"
 最后我打开了老的demo项目`qforce-server-demo-1`的工作空间（工作空间目录和项目目录不在同一个目录），从eclipse移除所有项目，再载入手游服务器的项目文件，就好了。
 
 这样看，Eclipse的工作空间中肯定包含了某些关于编译或者其他的设置，影响了我们是否可以成功编译。等有时间研究下到底是什么东西造成了这样的结果。
+
+## @Atry: 管道
+
+Stateless Future现在可以支持管道了： https://github.com/qifun/stateless-future-util/blob/master/src/main/scala/com/qifun/statelessFuture/util/Pipe.scala
+
+ * 线程安全
+ * 基于Lock-free算法
+ * 可以用来实现复杂的状态机
+
+@chank 上周说定时器逻辑太难写，现在用管道做个状态机就行了。
+
+实现管道时，发现Future宏的尾调用优化做得还不够好，于是重构了Future宏，现在尾调用优化很完美了： https://github.com/qifun/stateless-future/commit/9527b52fba29249561fb3625e3e36d0ddb860c91
