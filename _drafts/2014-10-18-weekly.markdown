@@ -47,3 +47,4 @@ Stateless Future现在可以支持管道了： https://github.com/qifun/stateles
 
 看起来Typesafe公司没人懂得“删删删”的设计真谛。不过，就算是吃屎，到底该红烧大便还是要凉拌大便，他们仍然可以讨论得津津有味：https://github.com/scala/scala/pull/4042 （PS: 他们应该没人认识中文吧）。
 
+有趣的是，Haxe的作者@ncannasse 却是个暴君。别人辛辛苦苦写好了补丁，@ncannasse 却总是以增加语言复杂度为理由拒绝。这大概也是Haxe能保持代码量比Scala小得多的原因吧。
