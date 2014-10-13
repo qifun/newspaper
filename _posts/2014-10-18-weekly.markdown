@@ -11,19 +11,19 @@ title: "岂凡技术小报 第二期"
 
 本来这是常见的事，然后我依次尝试了以前遇到这个情况之后成功解决的方法：
 
->刷新&clean
+* 刷新&clean
 
->重启Eclipse
+* 重启Eclipse
 
->关闭项目重新打开
+* 关闭项目重新打开
 
->Eclipse中删除项目重新载入
+* Eclipse中删除项目重新载入
 
->取消所有项目依赖关系再重新勾上
+* 取消所有项目依赖关系再重新勾上
 
->关掉Eclipse，sbt重新编译再打开
+* 关掉Eclipse，sbt重新编译再打开
 
->@Atry提供的方法，Remove scala nature然后再加回来以及修改编译选项再改回去
+* @Atry 提供的方法，Remove scala nature然后再加回来以及修改编译选项再改回去
 
 然后都失败了。
 
