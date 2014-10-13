@@ -58,3 +58,47 @@ title: "岂凡技术小报 第一期"
 使用防御式编程是很有必要的，即在编码时多使用assert。因为这次在性能评测查bug时通过多用assert发现了一些没有暴露出来但也很难会暴露出来的问题。例如在结束链接时竟然检查了两次链接可不可以被清理掉，而其中有一次是没有必要的
 
 ps：在stm中使用定时器好麻烦，如果没有模板照着写的话很容易出错
+
+## @tice9982: 单元测试异常处理
+
+什么也不说，先上代码
+
+| <pre> <code class="javascript">
+    try {
+      ……
+    } catch {
+      case e: Throwable => Assert.assertFalse(e.isInstanceof[XXXXXXX])
+    }
+</code></pre> | <pre> <code class="javascript">
+    try {
+      ……
+    } catch {
+      case e: XXXXXXX => //正常应该抛出的异常
+    }
+</code></pre> |
+
+本身Assert就是抛出异常，然后被自己写的第一段代码先截获　然后再抛出新的异常，这不但是多余的，而且还改变了原来的异常，如果提示的信息不正确，将给调试带来麻烦。
+
+反省反省
+
+（注：catcher处理也一样，把catcher声明成员函数也是以后要注意的）
+
+## @tice9982: 单元测试　注入
+
+| <pre> <code class="javascript">
+    new Session(id) with ParaisoSession with TextSession {
+      ……
+      final def outgoingService[ServiceInterface]( implicit entry: RpcSession.OutgoingProxyEntry[ServiceInterface]): ServiceInterface = {
+        //网络处理
+      }
+    }
+</code></pre> | <pre> <code class="javascript">
+      new ParaisoSession{
+        ……
+      final def outgoingService[Service](implicit entry: com.qifun.bcp.rpc.RpcSession.OutgoingProxyEntry[Service]): Service = {
+        assertEquals(XXXXXXX,XXXXXXXXX)
+        }
+      }
+</code></pre> |
+
+注入框架很方便实现接口的替换，从而跳过网络模块直接调用测试代码，一个单元测试思路
