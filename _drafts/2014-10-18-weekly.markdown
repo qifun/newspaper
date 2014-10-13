@@ -41,4 +41,4 @@ Stateless Future现在可以支持管道了： https://github.com/qifun/stateles
 
 @chank 上周说定时器逻辑太难写，现在用管道做个状态机就行了。
 
-实现管道时，发现Future宏的尾调用优化做得还不够好，于是重构了Future宏，现在尾调用优化很完美了： https://github.com/qifun/stateless-future/commit/9527b52fba29249561fb3625e3e36d0ddb860c91
+实现管道时，我发现Future宏的尾调用优化做得还不够好，于是重构了Future宏，现在尾调用优化很完美了： https://github.com/qifun/stateless-future/commit/9527b52fba29249561fb3625e3e36d0ddb860c91
