@@ -31,6 +31,10 @@ title: "岂凡技术小报 第二期"
 
 这样看，Eclipse的工作空间中肯定包含了某些关于编译或者其他的设置，影响了我们是否可以成功编译。等有时间研究下到底是什么东西造成了这样的结果。
 
+Update 10.16： 昨天研究了一下，怀疑是编译顺序导致的问题，但是上次的问题无法重现了，只能凭靠猜测了。这个选项在Eclipse的Window -> Preferences -> General -> Workspace -> Build Order里面设置。默认的选项似乎是项目名字典序，但是会用某种方法来解决其依赖关系。
+
+我将entity从Build Order中移除，编译过程中一度出现了和之前一样的错误信息，但这些错误信息在最后还是被清除掉了（貌似通过依赖关系找到了被依赖项目？）建议下次再碰到这个问题的同学试下修改Build Order能否解决这个问题。
+
 ## @Atry: 管道
 
 Stateless Future现在可以支持管道了： https://github.com/qifun/stateless-future-util/blob/master/src/main/scala/com/qifun/statelessFuture/util/Pipe.scala
