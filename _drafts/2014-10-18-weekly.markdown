@@ -56,10 +56,15 @@ Stateless Future现在可以支持管道了： https://github.com/qifun/stateles
 ## @chank: linux 内存使用率
 
 使用top命令查看linux内存使用率的时候发现used的内存很多，free的内存很少，而看应用程序%MEM的内存使用率却很少
+
 原来其实是linux的内存使用策略跟windows的不同
+
 linux 会尽可能多地利用内存来提高系统的性能，因此linux会把很大一部分内存用作文件缓存
+
 只有在应用程序需要内存的时候才会从cached缓存中分配内存给应用程序
+
 在top命令中看到的cached Mem就是文件元数据和文件缓存，而buffers则主要是目录元数据缓存
+
 因此应用程序总共使用的内存应该是：total-free-cached-buffers
 
 ## @chank: 项目依赖provided
