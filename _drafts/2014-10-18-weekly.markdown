@@ -52,3 +52,25 @@ Stateless Future现在可以支持管道了： https://github.com/qifun/stateles
 看起来Typesafe公司没人懂得“删删删”的设计真谛。不过，就算是吃屎，到底该红烧大便还是要凉拌大便，他们仍然可以讨论得津津有味：https://github.com/scala/scala/pull/4042 （PS: 他们应该没人认识中文吧）。
 
 有趣的是，Haxe的作者@ncannasse 却是个暴君。别人辛辛苦苦写好了补丁，@ncannasse 却总是以增加语言复杂度为理由拒绝。这大概也是Haxe能保持代码量比Scala小得多的原因吧。
+
+## @chank: linux 内存使用率
+
+使用top命令查看linux内存使用率的时候发现used的内存很多，free的内存很少，而看应用程序%MEM的内存使用率却很少
+原来其实是linux的内存使用策略跟windows的不同
+linux 会尽可能多地利用内存来提高系统的性能，因此linux会把很大一部分内存用作文件缓存
+只有在应用程序需要内存的时候才会从cached缓存中分配内存给应用程序
+在top命令中看到的cached Mem就是文件元数据和文件缓存，而buffers则主要是目录元数据缓存
+因此应用程序总共使用的内存应该是：total-free-cached-buffers
+
+## @chank: 项目依赖provided
+
+把项目之间的依赖关系标为"provided"意味着在编译期才需要被依赖的项目，发布后就不再包含被依赖的项目了
+例如json-stream-bson对json-stream的provided依赖表示在编译json-stream-bson时使用了json-stream，但发布之后就没有包含json-stream的代码了，在.sbt文件中的设置如下
+  库依赖:
+    libraryDependencies += "com.qifun" %% "json-stream" % "0.2.0-SNAPSHOT" % "provided"
+  对应的项目间依赖:
+    lazy val `json-stream-bson` = project dependsOn (`json-stream` % "provided")
+    
+通过这样设置项目之间的依赖关系就不需要在打包paraiso项目时使用sbt-assembly的first合并策略了。
+
+ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，使用的是第一个被声明依赖项目的文件
