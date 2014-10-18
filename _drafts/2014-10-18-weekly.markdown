@@ -47,12 +47,6 @@ Stateless Future现在可以支持管道了： https://github.com/qifun/stateles
 
 实现管道时，我发现Future宏的尾调用优化做得还不够好，于是重构了Future宏，现在尾调用优化很完美了： https://github.com/qifun/stateless-future/commit/9527b52fba29249561fb3625e3e36d0ddb860c91
 
-## @Atry: 吃屎
-
-看起来Typesafe公司没人懂得“删删删”的设计真谛。不过，就算是吃屎，到底该红烧大便还是要凉拌大便，他们仍然可以讨论得津津有味：https://github.com/scala/scala/pull/4042 （PS: 他们应该没人认识中文吧）。
-
-有趣的是，Haxe的作者@ncannasse 却是个暴君。别人辛辛苦苦写好了补丁，@ncannasse 却总是以增加语言复杂度为理由拒绝。这大概也是Haxe能保持代码量比Scala小得多的原因吧。
-
 ## @chank: linux 内存使用率
 
 使用top命令查看linux内存使用率的时候发现used的内存很多，free的内存很少，而看应用程序%MEM的内存使用率却很少
