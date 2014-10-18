@@ -92,3 +92,56 @@ ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，�
 在sbt中使用的就是Ivy来管理项目依赖的，但使用特定的领域专用语言(DSL)来描述依赖关系的，即libraryDependencies的语法。当然也可以用maven的pom.xml或ivy的ivy.xml文件来描述项目之间的依赖关系。
 
 具体可参考: https://www.packtpub.com/books/content/dependency-management-sbt
+
+## @tice9982: 二维表关联
+　
+　在项目里，有很多和等级有关的数据，如：角色等级、物品等级、声望等级、帮派等级等；除了等级以外还有其它的属性像：职业、军衔、性别等。
+　
+　如果在不同等级里，不同的军街，组成一个二维表。又需要在xlsx里定义等级和军街的数据.如下两个表格，这个应该怎么定义？
+　
+　- 怎么在项目里通过配置更新等级数据
+　- 怎么让“军街”　“等级”这两个表自动关联起来，可以让策划可以动态添加军街、等级这两个表的内容
+
+<table>
+    <tr>
+    <td></td><td>……</td><td>junxian1</td><td>junxian2</td><td>junxian3</td>
+    </tr>
+    <tr>
+        <td>dengji1</td><td>……</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+    <tr>
+        <td>dengji2</td><td>……</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+    <tr>
+        <td>dengji3</td><td>……</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>junxian1</td><td>相关数据</td>　　//
+    </tr>
+    <tr>
+        <td>junxian2</td><td>……</td>
+    </tr>
+    <tr>
+        <td>junxian3</td><td>……</td>
+    </tr>
+</table>
+
+现在在帮派里是下面的这样处理，军街变成了列，觉得不是太好。同时添加了一个next　用来修改类对象中的等级数据，也很别扭。
+
+<table>
+    <tr>
+    <td></td><td>……</td><td>next</td><td>junxian1</td><td>junxian2</td><td>junxian3</td>
+    </tr>
+    <tr>
+        <td>dengji1</td><td>……</td><td>dengji2</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+    <tr>
+        <td>dengji2</td><td>……</td><td>dengji3</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+    <tr>
+        <td>dengji3</td><td>……</td><td>……</td><td>……</td><td>……</td><td>……</td>
+    </tr>
+</table>
