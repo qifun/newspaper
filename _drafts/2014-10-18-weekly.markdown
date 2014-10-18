@@ -78,3 +78,17 @@ linux 会尽可能多地利用内存来提高系统的性能，因此linux会把
 通过这样设置项目之间的依赖关系就不需要在打包paraiso项目时使用sbt-assembly的first合并策略了。
 
 ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，使用的是第一个被声明依赖项目的文件
+
+## @chank: 项目依赖管理
+
+这周使用了sbt-sonatype来支持我们的项目自动发布项目到maven仓库
+
+使用Java或Scala都会经常听到maven和ivy，那么它们究竟是什么呢？
+
+查了下，原来Apache Maven是项目项目管理和自动构建的工具，它提供了管理项目依赖、测试、打包并且发布项目到仓库等一大堆功能，比较重量级。而它管理管理项目依赖用的是项目对象模型(pom)。使用pom.xml文件来定义
+
+而Apache Ivy则只是一个依赖管理工具(是Apache Ant的一个子项目)，它也是通过ivy.xml文件来定义的，比较轻量级一点。
+
+在sbt中使用的就是Ivy来管理项目依赖的，但使用特定的领域专用语言(DSL)来描述依赖关系的，即libraryDependencies的语法。当然也可以用maven的pom.xml或ivy的ivy.xml文件来描述项目之间的依赖关系。
+
+具体可参考: [https://www.packtpub.com/books/content/dependency-management-sbt)
