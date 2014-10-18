@@ -91,4 +91,4 @@ ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，�
 
 在sbt中使用的就是Ivy来管理项目依赖的，但使用特定的领域专用语言(DSL)来描述依赖关系的，即libraryDependencies的语法。当然也可以用maven的pom.xml或ivy的ivy.xml文件来描述项目之间的依赖关系。
 
-具体可参考: [https://www.packtpub.com/books/content/dependency-management-sbt)
+具体可参考: https://www.packtpub.com/books/content/dependency-management-sbt
