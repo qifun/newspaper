@@ -173,3 +173,16 @@ ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，�
 ## @xandy: Spine使用要注意的一个小细节
 
 Spine的`SkeletonAnimation.skeleton.SetSkin`之后要记得`SetSlotsToSetupPose`，否则Spine的DrawOrder会不正常，Attachment也不对。
+
+## @xandy: Spine的动画管理：
+    关键看SetAnimation(int trackIndex, String animationName, bool loop) 和 AddAnimation(int trackIndex, String 
+
+animationName, bool loop, float delay) 函数。他们的区别是：1直接设置当前trackIndex的动画为animationName（并把之前同层的
+
+往前挪），2是往当前trackIndex后面添加animationName相关的trackEntry。
+
+    trackIndex越大的动画，在更新的时候就越在后面。看AnimationState的Apply函数里面的一句：
+for (int i = 0; i < tracks.Count; i++) 
+{...}
+    这样就意味着trackIndex大的动画就会覆盖trackIndex小的动画。用途示例：
+把Idle动画设置为0层的，walk动画设置为1层的，当walk停止的时候，动画就自动切换到了Idle状态。
