@@ -170,6 +170,6 @@ ps: sbt-assembly的first在合并相同文件时是跟声明顺序有关的，�
 
 而在游戏的业务逻辑之中可能会需要反向查询其依赖关系，为了避免每次查询时的时间浪费，我们可以在程序中遍历配置表来建立一个全局常量表（静态常量）完成这方面的需求。
 
-## @xandy Spine使用要注意的一个小细节
+## @xandy: Spine使用要注意的一个小细节
 
-Spine的SkeletonAnimation.skeleton.SetSkin之后要记得SetSlotsToSetupPose，否则Spine的DrawOrder会不正常，Attachment也不对。
+Spine的`SkeletonAnimation.skeleton.SetSkin`之后要记得`SetSlotsToSetupPose`，否则Spine的DrawOrder会不正常，Attachment也不对。
