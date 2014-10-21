@@ -1,4 +1,11 @@
 ---
+author:
+  name: 小报
+  email: yangbo@qifun.com
+  url: "http://qforce.qifun.com/newspaper/"
+  github: qifun
+  bio: 岂凡技术小报
+  email_md5: 50993397b1b5ed2eae8e50e25d9663e8 
 layout: post
 title: "岂凡技术小报 第一期"
 ---

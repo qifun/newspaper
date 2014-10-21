@@ -20,14 +20,8 @@ defaults:
       title: 岂凡技术小报
 
 title: 小报
-author:
-  bitbucket: qforce
-  email: yangbo@qifun.com
-  github: qifun
-  name: 小报
-  url: "http://qforce.qifun.com/newspaper"
-  bio: 岂凡技术小报
-  email_md5: 50993397b1b5ed2eae8e50e25d9663e8 
+description: 岂凡技术小报
+bitbucket: qforce
 email: yangbo@qifun.com
 
 rss_path: feed.xml
