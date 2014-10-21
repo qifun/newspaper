@@ -14,6 +14,6 @@ title: "hxcs生成的dll问题"
 
 接着想让hxcs用mcs来编译csharp项目，但在path环境变量中加入mcs的路径hxcs依然不用mcs来编译csharp项目。看了hxcs的代码发现它的实现很奇葩，只要csc存在就优先用csc来编译项目。
 
-没办法只能修改hxcs的代码让它能够指定编译器来编译csharp项目。最后还向官方提交了个补丁[https://github.com/HaxeFoundation/hxcs/pull/13)
+没办法只能修改hxcs的代码让它能够指定编译器来编译csharp项目。最后还向官方提交了个补丁https://github.com/HaxeFoundation/hxcs/pull/13
 不知道会不会被接受呢
 
