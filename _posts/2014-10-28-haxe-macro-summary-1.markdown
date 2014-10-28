@@ -33,7 +33,7 @@ title: "Haxe宏总结(一)"
 
 以下为源代码
 
-``` 
+{% highlight haxe %}
 import haxe.macro.Expr;
 
 class Main {
@@ -47,18 +47,18 @@ class Main {
     return macro $e + $e;
   }
 }
-```
+{% endhighlight %}
 
 来看一下生成的Java代码吧。
 
-``` 
+{% highlight java %}
     public static   void main()
     {
 		int x = 0;
 		int b = ( x++ + x++ );
 		//Java目标代码中的trace()太长了，不写出来了
     }
-```
+{% endhighlight %}
 
 正如这个例子说明的这样，带`macro`关键字的函数add，返回的并不是函数值，而是表达式。表达式在编译时被替换成了其对应的代码，就有了下面的Java代码。
 
@@ -72,7 +72,7 @@ class Main {
 
 那就来看下一个例子
 
-``` 
+{% highlight haxe %}
 class Main {
   static public function main() {
     const("foo", 1, 1.5, true);
@@ -87,20 +87,20 @@ class Main {
     return macro null;
   }
 }
-```
+{% endhighlight %}
 
 生成的java代码:
 
-``` 
+{% highlight java %}
     public static   void main()
 	{
 		java.lang.Object __temp_expr26 = null;
 	}
-```
+{% endhighlight %}
 
 Nani!?什么都没有？不对，这里有一个`null`，正是`macro`函数所返回的。再看下刚才执行编译命令的控制台：
 
-```
+{% highlight cmd %}
 >haxe -main Main -java target
 Main.hx:8: foo
 Main.hx:9: 1
@@ -110,7 +110,7 @@ haxelib run hxjava hxjava_build.txt --haxe-version 3200
 javac.exe "-sourcepath" "src" "-d" "obj" "-g:none" "@cmd"
 
 >
-```
+{% endhighlight %}
 
 这下明白了。原来输出的内容都在编译时输出了，而生成的代码里面，是不包含macro函数内的中间过程的。
 
@@ -122,7 +122,7 @@ javac.exe "-sourcepath" "src" "-d" "obj" "-g:none" "@cmd"
 
 我们还是先从最简单的开始，这仍是一个来自与官方文档的例子：
 
-```
+{% highlight haxe %}
 class Main {
   macro static function
   generateClass(funcName:String) {
@@ -141,11 +141,11 @@ class Main {
     c.myFunc();
     }
 }
-```
+{% endhighlight %}
 
 看下生成代码的目录，果然多了一个MyClass。让我们看看里面的内容吧。
 
-```
+{% highlight java %}
 public  class MyClass extends haxe.lang.HxObject
 {
     public   void myFunc()
@@ -154,18 +154,18 @@ public  class MyClass extends haxe.lang.HxObject
 	}
 	//还有些反射取所有字段之类的方法，省略
 }
-```
+{% endhighlight %}
 
 而main的目标代码如下：
 
-```
+{% highlight java %}
 	public static   void main()
 	{
 		haxe.root.MyClass c = new haxe.root.MyClass();
 		c.myFunc();
 	}
 	
-```
+{% endhighlight %}
 
 我们就这样生成了一个自己的类，类里面成员函数的名字都是在生成的时候传进去的。
 
