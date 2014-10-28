@@ -9,8 +9,6 @@ layout: post
 title: "Haxe宏总结(一)"
 ---
 
-# Haxe宏总结
-
 这段时间使用了很多Haxe的宏，深感其功能强大，但因官方文档晦涩，缺乏中文资料，所以写了这样一篇总结，错误之处，敬请斧正。
 
 ## 什么是Haxe的宏(macro)？
@@ -34,7 +32,7 @@ title: "Haxe宏总结(一)"
 第一个例子
 
 以下为源代码
-``` haxe
+``` 
 import haxe.macro.Expr;
 
 class Main {
@@ -51,7 +49,7 @@ class Main {
 ```
 来看一下生成的Java代码吧。
 
-``` java
+``` 
     public static   void main()
     {
 		int x = 0;
@@ -72,7 +70,7 @@ class Main {
 
 那就来看下一个例子
 
-``` haxe
+``` 
 class Main {
   static public function main() {
     const("foo", 1, 1.5, true);
@@ -90,7 +88,7 @@ class Main {
 ```
 生成的java代码:
 
-``` java
+``` 
     public static   void main()
 	{
 		java.lang.Object __temp_expr26 = null;
@@ -98,7 +96,7 @@ class Main {
 ```
 Nani!?什么都没有？不对，这里有一个`null`，正是`macro`函数所返回的。再看下刚才执行编译命令的控制台：
 
-``` cmd
+```
 >haxe -main Main -java target
 Main.hx:8: foo
 Main.hx:9: 1
@@ -119,7 +117,7 @@ javac.exe "-sourcepath" "src" "-d" "obj" "-g:none" "@cmd"
 
 我们还是先从最简单的开始，这仍是一个来自与官方文档的例子：
 
-``` haxe
+```
 class Main {
   macro static function
   generateClass(funcName:String) {
@@ -142,7 +140,7 @@ class Main {
 
 看下生成代码的目录，果然多了一个MyClass。让我们看看里面的内容吧。
 
-``` java
+```
 public  class MyClass extends haxe.lang.HxObject
 {
     public   void myFunc()
@@ -155,7 +153,7 @@ public  class MyClass extends haxe.lang.HxObject
 
 而main的目标代码如下：
 
-``` java
+```
 	public static   void main()
 	{
 		haxe.root.MyClass c = new haxe.root.MyClass();
