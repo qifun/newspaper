@@ -32,6 +32,7 @@ title: "Haxe宏总结(一)"
 第一个例子
 
 以下为源代码
+
 ``` 
 import haxe.macro.Expr;
 
@@ -47,6 +48,7 @@ class Main {
   }
 }
 ```
+
 来看一下生成的Java代码吧。
 
 ``` 
@@ -86,6 +88,7 @@ class Main {
   }
 }
 ```
+
 生成的java代码:
 
 ``` 
@@ -94,6 +97,7 @@ class Main {
 		java.lang.Object __temp_expr26 = null;
 	}
 ```
+
 Nani!?什么都没有？不对，这里有一个`null`，正是`macro`函数所返回的。再看下刚才执行编译命令的控制台：
 
 ```
@@ -107,6 +111,7 @@ javac.exe "-sourcepath" "src" "-d" "obj" "-g:none" "@cmd"
 
 >
 ```
+
 这下明白了。原来输出的内容都在编译时输出了，而生成的代码里面，是不包含macro函数内的中间过程的。
 
 因为，macro关键字表达式内的代码，都是在编译期执行的。
