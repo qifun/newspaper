@@ -10,7 +10,7 @@ layout: post
 title: "<code>haxe-continuation</code>的新功能"
 ---
 
-今天为<a href='https://github.com/Atry/haxe-continuation'>haxe-continuation</a>增加了几个新功能：
+今天为<a href='https://github.com/Atry/haxe-continuation'>haxe-continuation</a>增加了几项新功能：
 
  * 支持array comprehension功能
  * 支持用`for`循环遍历`haxe.ds.Vector`;
