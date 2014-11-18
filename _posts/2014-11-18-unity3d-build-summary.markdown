@@ -70,10 +70,10 @@ namespace Qifun.Sun.Demo.Editor
 
 ---
 
-[^AOT]: mono官方对AOT机制的描述：http://www.mono-project.com/docs/advanced/aot/
+[^AOT]: mono官方对AOT机制的描述：<a>http://www.mono-project.com/docs/advanced/aot/<a>
 
-[^JIT]: 一篇分析JIT机制的文章：http://blogs.telerik.com/justteam/posts/13-05-28/understanding-net-just-in-time-compilation
+[^JIT]: 一篇分析JIT机制的文章：<a>http://blogs.telerik.com/justteam/posts/13-05-28/understanding-net-just-in-time-compilation<a>
 
-[^SDB]: SDB：http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/
+[^SDB]: SDB：<a>http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/<a>
 
-[^PDC]: 平台依赖编译：http://docs.unity3d.com/412/Documentation/Manual/PlatformDependentCompilation.html
+[^PDC]: 平台依赖编译：<a>http://docs.unity3d.com/412/Documentation/Manual/PlatformDependentCompilation.html<a>
