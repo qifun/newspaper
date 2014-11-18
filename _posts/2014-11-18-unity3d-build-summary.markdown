@@ -10,6 +10,8 @@ layout: post
 title: "Unity3d构建总结"
 ---
 
+做Unity持续集成总结
+
 ## 一、mono编译机制
 
 Unity是使用mono来编译C#脚本的，而mono支持二种编译机制：JIT(Just-In-Time)[^JIT]编译和AOT(Ahead-of-Time)[^AOT]编译。因此Unity也是支持以这两种方式来编译脚本的。JIT编译是指首先将源文件编译成中间语言(IL)，在运行时JIT编译器再将IL编译成能够再机器上运行的指令。因此JIT编译可以大大提高编译速度，并且代码只需要编译一次就能在安装了JIT编译器的机器上运行。而AOT编译则是指直接将代码编译成能够在特定机器上运行的程序。一般情况下，mono都是使用的JIT机制编译成.NET dll 文件的。但在iOS中，mono使用的是AOT机制。
