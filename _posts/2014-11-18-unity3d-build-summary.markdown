@@ -77,4 +77,4 @@ namespace Qifun.Sun.Demo.Editor
 
 [^SDB]: SDB：<a href="http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/">http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/<a>
 
-[^PDC]: 平台依赖编译：<a href="http://docs.unity3d.com/412/Documentation/Manual/PlatformDependentCompilation.html">http://docs.unity3d.com/412/Documentation/Manual/PlatformDependentCompilation.html<a>
+[^PDC]: 平台依赖编译：<a href="http://docs.unity3d.com/Manual/PlatformDependentCompilation.html">http://docs.unity3d.com/Manual/PlatformDependentCompilation.html<a>
