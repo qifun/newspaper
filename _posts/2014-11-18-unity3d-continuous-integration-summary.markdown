@@ -48,8 +48,6 @@ namespace Qifun.Sun.Demo.Editor
             List<string> sceneNames = new List<string>();
             foreach(EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
             {
-                if(scene == null)
-                    continue;
                 if(scene.enabled)
                 {
                     sceneNames.Add(scene.path);
