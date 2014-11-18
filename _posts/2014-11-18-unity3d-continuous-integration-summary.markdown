@@ -10,7 +10,7 @@ layout: post
 title: "Unity3d持续集成总结"
 ---
 
-总结Unity3d做持续集成中遇到的问题和解决方法。
+总结在做Unity3d持续集成过程中遇到的问题和解决方法。
 
 ## 一、mono编译机制
 
@@ -23,6 +23,8 @@ Unity是使用mono来编译C#脚本的，而mono支持二种编译机制：JIT(J
 （一）在Linux上做Unity的持续集成时，会报 `unity error:debugger-agent Unable to listen on 6` 异常，这主要是因为Unity跟mono是使用SDB(Mono Soft Debugger)[^SDB]协议来调试编译程序的，而SDB协议是基于socket上的，但在Linux上如果不是root用户的话是不能监听低于1024的端口的。目前在Unity上还没有找到修改debugger-agent监听端口的方法，虽然在mono中是可以的，但Unity只提供了一个Unity命令来构建代码。
 
 （二）在Linux上，Unity是需要使用playonlinux中管理的wine才能运行的，即Unity只不过是运行在windows虚拟机上而已，并不支持Linux。而jenkins中的Unity插件是不支持Linux的。要使用jenkins中的Unity插件是因为Unity的命令行是运行在后台的，它的编译错误只会记录到日志文件上，因此只有通过分析日志文件我们才能知道Unity有没有构建成功。jenkins上的Unity插件就是做了这个事。
+
+ps: 我们本来还打算把jenkins搭到windows服务器上的，谁知道服务器用的是VGA显卡，而Unity却不支持VGA显卡。最后我们才选择把jenkins搭到mac上。
 
 ## 三、Unity命令行的执行
 
