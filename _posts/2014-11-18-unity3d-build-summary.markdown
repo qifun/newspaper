@@ -10,7 +10,7 @@ layout: post
 title: "Unity3d构建总结"
 ---
 
-做Unity持续集成总结
+做Unity持续集成总结。
 
 ## 一、mono编译机制
 
