@@ -7,10 +7,10 @@ author:
   email_md5: 5851b66b5708deba39cb20fca4adf312
   url: 
 layout: post
-title: "Unity3d构建总结"
+title: "Unity3d持续集成总结"
 ---
 
-做Unity持续集成总结。
+总结Unity3d做持续集成中遇到的问题和解决方法。
 
 ## 一、mono编译机制
 
